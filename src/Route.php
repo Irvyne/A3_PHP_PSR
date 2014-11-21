@@ -7,17 +7,13 @@
  */
 
 namespace OKLM\StringGenerator;
-$name = 'deux.html';
 
 class Route
 {
-
-
     public function __construct()
     {
 
     }
-
 
     public static function Route($name)
     {
@@ -26,7 +22,5 @@ class Route
         print_r($files1);
 
         echo $files1[4];
-
-
     }
 }

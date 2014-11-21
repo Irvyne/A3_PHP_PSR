@@ -8,34 +8,59 @@
 
 namespace OKLM\StringGenerator;
 
+/**
+ * Class PasswordGenerator
+ *
+ * @package OKLM\StringGenerator
+ */
 class PasswordGenerator
 {
+    const PASSWORD_EASY   = 1;
+    const PASSWORD_MEDIUM = 2;
+    const PASSWORD_HARD   = 3;
 
+    /**
+     * @var string
+     */
     private static $strengthEasy = 'abcdefghijklmnopqrstuvwxyz';
+
+    /**
+     * @var string
+     */
     private static $strengthMedium = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+    /**
+     * @var string
+     */
     private static $strengthHard = '$€£%!@#&éè';
 
-    const PASSWORD_EASY = 1;
-    const PASSWORD_MEDIUM = 2;
-    const PASSWORD_HARD = 3;
 
+    /**
+     * Constructor
+     */
     public function __construct()
     {
-
     }
 
-
-    public static function generatePassword($length = 10, $strenght)
+    /**
+     * @param int $length
+     * @param     $strength
+     *
+     * @return string
+     * 
+     * @throws \Exception
+     */
+    public static function generatePassword($length = 10, $strength)
     {
-        if(!in_array($strenght, [
+        if(!in_array($strength, [
             self::PASSWORD_EASY,
             self::PASSWORD_MEDIUM,
             self::PASSWORD_HARD,
         ])) {
-            throw new \Exception('Invalid strenght');
+            throw new \Exception('Invalid strength');
         }
 
-        switch($strenght){
+        switch($strength){
             case self::PASSWORD_EASY:
                 $string = self::$strengthEasy;
                 break;
@@ -49,8 +74,8 @@ class PasswordGenerator
 
         $password = '';
 
-        for ($i = 0; $i < $length; $i++){
-            $password .= mb_substr($string, mt_rand(0, mb_strlen($string)-1), 1);
+        for ($i = 0; $i < $length; $i++) {
+            $password .= mb_substr($string, mt_rand(0, mb_strlen($string) - 1), 1);
         }
 
         return $password;
