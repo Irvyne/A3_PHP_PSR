@@ -10,9 +10,6 @@ namespace OKLM\StringGenerator;
 
 class PasswordGenerator
 {
-    const PASSWORD_CHAR_STRENGTH_EASY = 'abcdefghijklmnopqrstuvwxyz';
-    const PASSWORD_CHAR_STRENGTH_MEDIUM = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    const PASSWORD_CHAR_STRENGTH_HARD = '$€£%!@#&éè';
 
     private static $strengthEasy = 'abcdefghijklmnopqrstuvwxyz';
     private static $strengthMedium = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -28,7 +25,7 @@ class PasswordGenerator
     }
 
 
-    public static function generate($length = 10, $strenght)
+    public static function generatePassword($length = 10, $strenght)
     {
         if(!in_array($strenght, [
             self::PASSWORD_EASY,

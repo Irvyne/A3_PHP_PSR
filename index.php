@@ -10,6 +10,9 @@ header('Content-Type: text/html; charset=utf-8');
 //new \OKLM\StringGenerator\PasswordGenerator();
 
 
-echo \OKLM\StringGenerator\PasswordGenerator::generate(11, \OKLM\StringGenerator\PasswordGenerator::PASSWORD_EASY);
 
+//echo \OKLM\StringGenerator\PasswordGenerator::generatePassword(11, \OKLM\StringGenerator\PasswordGenerator::PASSWORD_EASY);
 
+echo \OKLM\StringGenerator\TextGenerator::generateText(15);
+
+echo \OKLM\StringGenerator\Route::Route();
